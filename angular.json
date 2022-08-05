@@ -28,14 +28,16 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",              
+              "src/favicon.ico",
+              "src/404.html"
             ],
             "styles": [
               "src/styles.scss",
               "node_modules/cytoscape-panzoom/cytoscape.js-panzoom.css"
             ],
             "scripts": [
-              "node_modules/cytoscape/dist/cytoscape.min.js",              
+              "node_modules/cytoscape/dist/cytoscape.min.js",
               "node_modules/cytoscape-dagre/cytoscape-dagre.js",
               "node_modules/cytoscape-popper/cytoscape-popper.js",
               "node_modules/cytoscape-canvas/dist/cytoscape-canvas.js",
@@ -44,7 +46,7 @@
             ]
           },
           "configurations": {
-            "production": {           
+            "production": {
               "outputHashing": "all"
             },
             "development": {
