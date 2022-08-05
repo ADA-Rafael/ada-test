@@ -1,0 +1,14 @@
+<div class="page-wrapper" [ngClass]="{'toggled' : getSideBarState()}">
+  <app-sidemenu></app-sidemenu>
+  <main class="page-content">
+    <div class="container-fluid">
+      <ng-container>
+        <div class="module-border-wrap full-hv c-shadow" style="width: 100%; ">
+          <div id="cy"></div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="overlay" (click)="toggleSidebar()" [ngClass]="{'show' : !getSideBarState()}"></div>
+  </main>
+</div>
+

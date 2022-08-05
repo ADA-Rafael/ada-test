@@ -1,0 +1,300 @@
+.page-wrapper {
+  height: 100vh;
+
+  .page-content {
+    display: inline-block;
+    width: 100%;
+    padding-top: 20px;
+    transition: padding-left .3s ease;
+
+    @media screen and (min-width: 768px) {
+      padding-left: 300px;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 998;
+      background: #000;
+      opacity: .5;
+      display: none;
+
+      &.show {
+
+        @media screen and (max-width: 768px) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    left: 0px;
+  }
+
+  &.toggled {
+
+    .page-content {
+      padding-left: 0;
+    }
+  }
+
+  .attribution {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    margin: 5px;
+    letter-spacing: 1px;
+  }
+}
+
+
+
+
+
+
+#notifyBlock {
+  z-index: 6666666;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  min-height: 100px;
+  max-height: 350px;
+  width: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: left;
+}
+
+#notifyBlock h3 {
+  color: red;
+  text-align: left;
+}
+
+#notifyBlock h2 {
+  color: red;
+}
+
+
+#cy {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: white;
+
+}
+
+.custom-edit {
+  position: absolute;
+  padding: 5px;
+  top: 0;
+  outline: none;
+  left: 0%;
+  text-align: center;
+  text-decoration: none;
+  z-index: 2;
+  margin: 0px auto;
+}
+
+.c-btn {
+  border: 1px solid transparent;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
+  color: #041E42;
+  background-color: #4d90fe;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+}
+
+.zoom {
+  font-size: 35px;
+}
+
+.c-btn-exit {
+  color: #041E42;
+  right: 15px;
+  bottom: 10px;
+  position: absolute;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  z-index: 2;
+  margin: 0px auto;
+}
+
+.c-exit-icon {
+  font-size: 45px;
+}
+
+.button-panel {
+  top: 0;
+  color: #041E42;
+  right: 5px;
+  position: absolute;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  z-index: 2;
+  margin: 0px auto;
+}
+
+
+.liveBit {
+  top: 0;
+  color: black;
+  left: 60px;
+  position: absolute;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  z-index: 2;
+  margin: 0px auto;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tippy-tooltip.tomato-theme {
+  background-color: tomato;
+  color: yellow;
+}
+
+.tippy-tooltip.tomato-theme[data-placement^='top'] .tippy-arrow {
+  border-top-color: tomato;
+}
+
+.tippy-tooltip.tomato-theme[data-placement^='bottom'] .tippy-arrow {
+  border-bottom-color: tomato;
+}
+
+.tippy-tooltip.tomato-theme[data-placement^='left'] .tippy-arrow {
+  border-left-color: tomato;
+}
+
+.tippy-tooltip.tomato-theme[data-placement^='right'] .tippy-arrow {
+  border-right-color: tomato;
+}
+
+.tippy-tooltip.tomato-theme .tippy-svg-arrow {
+  fill: tomato;
+}
+
+.module-border-wrap {
+  position: relative;
+}
+
+.module {
+  background: #222;
+  color: white;
+  padding: 2rem;
+}
+
+
+$anime-time: 8s;
+
+$box-size: 800px;
+$clip-distance: .05;
+$clip-size: $box-size * (1 + $clip-distance * 2);
+$path-width: 2px;
+
+$main-color: #69ca62;
+
+$codepen-logo-path: url('//blog.codepen.io/wp-content/uploads/2012/06/Button-White-Large.png');
+
+%full-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.bb {
+  @extend %full-fill;
+  width: 1000px !important;
+  height: 1000px;
+  margin: auto;
+  background: $codepen-logo-path no-repeat 50% / 70% rgba(#000, .1);
+  color: $main-color;
+  box-shadow: inset 0 0 0 1px rgba($main-color, .5);
+
+  &::before,
+  &::after {
+    @extend %full-fill;
+    content: '';
+    z-index: -1;
+    margin: -1 * $clip-distance * 100%;
+    box-shadow: inset 0 0 0 $path-width;
+    animation: clipMe $anime-time linear infinite;
+  }
+
+  &::before {
+    animation-delay: $anime-time * -.5;
+  }
+}
+
+@keyframes clipMe {
+
+  0%,
+  100% {
+    clip: rect(0px, $clip-size, $path-width, 0px);
+  }
+
+  25% {
+    clip: rect(0px, $path-width, $clip-size, 0px);
+  }
+
+  50% {
+    clip: rect($clip-size - $path-width, $clip-size, $clip-size, 0px);
+  }
+
+  75% {
+    clip: rect(0px, $clip-size, $clip-size, $clip-size - $path-width);
+  }
+}
+
+/////
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  background-color: #0f222b;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.full-hv {
+  height: 90vh;
+  min-height: 90vh;
+}
+
+.c-shadow {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  //  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+//    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+// box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+// box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+// box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+// box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+// box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+}
